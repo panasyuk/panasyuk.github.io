@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).on('click', 'input[type=submit]',
+        function(e) {
+          e.preventDefault()
+          var baseUrl, params, resultUrl;
+          baseUrl = 'https://api-mir-kvestov.ru/api/quests/167?';
+          params = $('form').serialize();
+          resultUrl = baseUrl + params;
+          resultUrl = resultUrl.replace(/%23/g, '');
+          $('iframe').attr('src', resultUrl);
+        }
+      );
+    </script>
+  </head>
+  <body>
+    <form action="https://api-mir-kvestov.ru/api/quests/167" method="GET" target="preview">
+      <div>
+        <label for="city_id">City</label>
+        <select id="city_id" name="city_id">
+          <option value="1">Some city</option>ccc
+        </select>
+      </div>
+
+      <div>
+        <label for="theme">Theme</label>
+        <select id="theme" name="theme">
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="label_form">Label form</label>
+        <select id="label_form" name="label_form">
+          <option>Round</option>
+          <option value="square">Square</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="label_size">Label size</label>
+        <select id="label_size" name="label_size">
+          <option value="medium">M</option>
+          <option value="large">L</option>
+          <option value="xlarge">XL</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="text_color">Text color</label>
+        <input id="text_color" name="text_color" type="color" value="#FF0000"/>
+      </div>
+
+      <div>
+        <label for="button_color">Button color</label>
+        <input id="button_color" name="button_color" type="color" value="#FF0000"/>
+      </div>
+
+      <div>
+        <label for="button_color_hover">Button color on hover</label>
+        <input id="button_color_hover" name="button_color_hover" type="color" value="#FF0000"/>
+      </div>
+
+      <div>
+        <label for="palette">Palette</label>
+        <select id="palette" name="palette">
+          <option>Default</option>
+          <option value="palette1">Palette 1</option>
+          <option value="palette2">Palette 2</option>
+          <option value="palette3">Palette 3</option>
+          <option value="palette4">Palette 4</option>
+          <option value="palette5">Palette 5</option>
+        </select>
+      </div>
+
+      <div>
+        <input id="quests_menu" name="quests_menu" value="167,117" type="checkbox"/>
+        <label for="quests_menu">Show quests menu</label>
+      </div>
+
+      <div>
+        <label for="btn_current_quest_color">Current quest button color</label>
+        <input id="btn_current_quest_color" name="btn_current_quest_color" type="color" value="#FF0000"/>
+      </div>
+
+      <div>
+        <label for="btn_other_quest_color">Other quest button color</label>
+        <input id="btn_other_quest_color" name="btn_other_quest_color" type="color" value="#FF0000"/>
+      </div>
+
+      <div>
+        <input type="submit"/>
+      </div>
+    </form>
+    <iframe name="preview" src="https://api-mir-kvestov.ru/api/quests/167?city_id=1" width="100%" scrolling="no" frameborder="no" width="100%" height="100%"></iframe>
+  </body>
+</html>
